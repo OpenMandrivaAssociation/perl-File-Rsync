@@ -14,7 +14,6 @@ Source:         http://www.cpan.org/modules/by-module/File/%{module}-%{version}.
 Patch0:		    %{name}-0.42.build.patch
 BuildRequires:	perl-devel
 BuildRequires:	rsync
-BuildRoot:      %{_tmppath}/%{name}-%{version}
 
 %description
 Perl Convenience wrapper for the rsync(1) program. Written for rsync-2.3.2 and
