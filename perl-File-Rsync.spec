@@ -1,28 +1,28 @@
-%define	module	File-Rsync
-%define	name	perl-%{module}
-%define	version	0.42
-%define	release	%mkrel 6
+%define	upstream_name	 File-Rsync
+%define	upstream_version 0.42
 
-Name:		    %{name}
-Version:	    %{version}
-Release:	    %{release}
-Summary:	    Perl module interface to rsync
-License:	    GPL or Artistic
-Group:		    Development/Perl
-Url:		    http://search.cpan.org/dist/%{module}
-Source:         http://www.cpan.org/modules/by-module/File/%{module}-%{version}.tar.bz2
-Patch0:		    %{name}-0.42.build.patch
+Name:       perl-%{upstream_name}
+Version:    %perl_convert_version %{upstream_version}
+Release:    %mkrel 1
+
+Summary:	Perl module interface to rsync
+License:	GPL+ or Artistic
+Group:		Development/Perl
+Url:		http://search.cpan.org/dist/%{upstream_name}
+Source0:    http://www.cpan.org/modules/by-module/File/%{upstream_name}-%{upstream_version}.tar.bz2
+Patch0:		%{name}-0.42.build.patch
+
 BuildRequires:	perl-devel
 BuildRequires:	rsync
-BuildRoot:      %{_tmppath}/%{name}-%{version}
+BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}
 
 %description
 Perl Convenience wrapper for the rsync(1) program. Written for rsync-2.3.2 and
 updated for rsync-2.6.0 but should perform properly with most recent versions.
 
 %prep
-%setup -n %{module}-%{version}
-%patch
+%setup -q -n %{upstream_name}-%{upstream_version}
+%patch0
 
 %build
 %{__perl} Makefile.PL INSTALLDIRS=vendor
@@ -43,4 +43,3 @@ rm -rf %{buildroot}
 %doc README Changelog
 %{perl_vendorarch}/File
 %{_mandir}/*/*
-
