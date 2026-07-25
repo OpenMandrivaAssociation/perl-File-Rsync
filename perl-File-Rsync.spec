@@ -1,17 +1,17 @@
 %define	upstream_name	 File-Rsync
-%define	upstream_version 0.43
+%define	upstream_version 0.49
 
 %define debug_package %{nil}
 
 Name:       perl-%{upstream_name}
-Version:    %perl_convert_version %{upstream_version}
-Release:	8
+Version:    %{upstream_version}
+Release:	1
 
 Summary:	Perl module interface to rsync
 License:	GPL+ or Artistic
 Group:		Development/Perl
-Url:		https://search.cpan.org/dist/%{upstream_name}
-Source0:    http://www.cpan.org/modules/by-module/File/%{upstream_name}-%{upstream_version}.tar.gz
+Url:		https://metacpan.org/dist/File-Rsync
+Source0:    https://cpan.metacpan.org/authors/id/L/LE/LEAKIN/File-Rsync-%{upstream_version}.tar.gz
 Patch0:		%{name}-0.42.build.patch
 
 BuildRequires:	make
